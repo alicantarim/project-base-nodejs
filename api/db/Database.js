@@ -14,10 +14,12 @@ class Database {
   async connect(options) {
     try {
       console.log("MongoDB Connecting...");
-      let db = await mongoose.connect(options.CONNECTION_STRING);
+      let db = await mongoose.connect(options.CONNECTION_STRING); // MongoDB bağlantısı
 
       this.mongoConnection = db;
       console.log("MongoDB Connected");
+      console.log("Localhost URL -> http://localhost:3000"); // Uygulama adresi
+      console.log("MongoDB URL -> " + options.CONNECTION_STRING); // MongoDB bağlantı adresi
     } catch (error) {
       console.error("MongoDB Connection Error", error);
       process.exit(1); // Uygulamayı sonlandırır
